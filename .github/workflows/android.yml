@@ -119,7 +119,7 @@ jobs:
           $apks = Get-ChildItem -include *.apk -path ExtLibs\Xamarin\Xamarin.Android\bin\Release\ -Recurse
           
           ForEach($i in $apks){
-            C:\Android\android-sdk\build-tools\29.0.3\zipalign.exe -p -f -v 4 $i
+            C:\Android\android-sdk\build-tools\29.0.3\zipalign.exe -p -v 4 $i.FullName
           }
       - name: Sign APK
         if: ${{ github.event_name == 'push' }}
